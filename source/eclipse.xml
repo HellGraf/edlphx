@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="server_hf" default="compile" basedir=".">
+
+	<path id="classpath">
+		<fileset dir="libs/">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="init">
+		<delete dir="classes"/>
+		<mkdir dir="classes"/>
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac destdir="classes" optimize="on" debug="on" source="1.6" target="1.6" encoding="UTF-8" includeantruntime="false" nowarn="off">
+			<compilerarg value="-Xlint:all">
+			</compilerarg>
+			<src path="java"/>
+			<classpath refid="classpath"/>
+		</javac>
+	</target>
+	
+</project>

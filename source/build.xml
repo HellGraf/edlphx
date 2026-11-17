@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="server_hf" default="jar" basedir=".">
+
+	<path id="classpath">
+		<fileset dir="libs/">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="init">
+		<!-- <delete dir="build"/> -->
+		<mkdir dir="build"/>
+		<delete file="server.jar"/>
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac destdir="build" optimize="on" debug="on" source="1.6" target="1.6" encoding="UTF-8" includeantruntime="false" nowarn="off">
+			<compilerarg value="-Xlint:all">
+			</compilerarg>
+			<src path="java"/>
+			<classpath refid="classpath"/>
+		</javac>
+	</target>
+	
+	<target name="jar" depends="compile">
+		<jar destfile="server.jar" level="9">
+			<fileset dir="build">
+				<exclude name="actions/**" />
+				<exclude name="ai/**" />
+				<exclude name="bosses/**" />
+				<exclude name="commands/**" />
+				<exclude name="community/**" />
+				<exclude name="events/**" />
+				<exclude name="items/**" />  
+				<exclude name="npc/**" />
+				<exclude name="quests/**" />
+				<exclude name="services/**" />
+				<exclude name="ItemHandlers**" />
+				<exclude name="Kamaloka**" />
+				<exclude name="Util**" />
+			</fileset>
+		</jar>
+		<jar destfile="scripts.jar" level="9">
+			<fileset dir="build">
+				<exclude name="**/l2p/**" />
+			</fileset>
+		</jar>
+		<!-- <delete dir="build"/> -->
+	</target>
+	
+</project>

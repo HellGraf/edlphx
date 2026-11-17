@@ -1,0 +1,4 @@
+#!/bin/sh
+screen -A -m -d -S HIGHFIVE_LOGIN sh /home/matrix/highfive/start_ls
+screen -A -m -d -S HIGHFIVE_GAME sh /home/matrix/highfive/start_gs
+exit 0

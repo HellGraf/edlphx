@@ -1,0 +1,8 @@
+#!/bin/sh
+cd /home/matrix/highfive
+while :; do
+../java/bin/java -server -Dfile.encoding=UTF-8 -Xms8192m -Xmx8192m -cp config:./*:./server.jar l2p.gameserver.GameServer
+[ $? -ne 2 ] && break
+sleep 10
+done
+exit 0

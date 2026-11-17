@@ -1,0 +1,8 @@
+#!/bin/sh
+cd /home/matrix/highfive
+while :; do
+../java/bin/java -server -Dfile.encoding=UTF-8 -Xms1024m -Xmx1024m -cp config:./*:./server.jar l2p.loginserver.L2LoginServer
+[ $? -ne 2 ] && break
+sleep 10
+done
+exit 0
